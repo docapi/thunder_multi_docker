@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  apache-php:
+    hostname: multisite.test
+    build: ./docker/php72
+    image: ms_web
+    ports:
+      - "127.0.0.1:80:80"
+      - "127.0.0.1:443:443"
+    volumes:
+      - .:/var/www/html:cached
+      - ./logs:/var/log/apache2
+    links:
+      - db
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "4306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345678
+      - MYSQL_DATABASE=multi1
+      - MYSQL_HOST=db
