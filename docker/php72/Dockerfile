@@ -44,6 +44,9 @@ RUN docker-php-ext-install gd && \
 # Configure Apache VHOSTS
 COPY apache.conf /etc/apache2/sites-available/first.conf
 RUN a2ensite first.conf
+COPY site1_apache.conf /etc/apache2/sites-available/site1.conf
+RUN a2ensite site1.conf
+
 RUN a2dissite 000-default
 
 #RUN sed -ri -e 's!/var/www/html!/var/www/html/docroot!g' /etc/apache2/sites-available/*.conf
