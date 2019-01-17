@@ -4,6 +4,8 @@ FROM php:7.2-apache
 RUN apt-get update \
     && apt-get -y --no-install-recommends install \
     libxml2-dev \
+    git \
+    zip \
     curl \
     libmemcached-dev \
     libz-dev \
@@ -13,6 +15,8 @@ RUN apt-get update \
     libfreetype6-dev \
     libssl-dev \
     libmcrypt-dev
+
+RUN curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copy PHP configuration
 # Edit docker/php.ini and customize it to your needs

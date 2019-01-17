@@ -87,6 +87,7 @@
         "enable-patching": true
     },
     "config": {
-        "bin-dir": "bin/"
+        "bin-dir": "bin/",
+        "vendor-dir": "vendor/"
     }
 }

@@ -57,4 +57,4 @@
  */
 
 #make the root drupal site aware of site1:
-#$sites['site1.multisite.test'] = 'site1.multisite.test';
+$sites['site1.multisite.test'] = 'site1.multisite.test';
